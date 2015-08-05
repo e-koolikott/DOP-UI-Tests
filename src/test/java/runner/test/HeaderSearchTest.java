@@ -2,23 +2,34 @@ package runner.test;
 
 import org.junit.BeforeClass;
 import org.junit.Test;
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 
 public class HeaderSearchTest {
-    public static FirefoxDriver driver;
+
+    static WebDriver driver;
 
     @BeforeClass
-    public void openBrowser() {
+    public static void openBrowser() {
         driver = new FirefoxDriver();
     }
 
     @Test
-    public void headerSearch() {
+    public void headerSearch() throws InterruptedException {
+        GoTo goTo = new GoTo();
+        Header header = new Header();
+        goTo.LandingPage(driver);
 
-        driver.get("http://oxygen.netgroupdigital.com/#");
+        driver.get("http://oxygen.netgroupdigital.com/#/material?materialId=3918");
+        driver.get("http://oxygen.netgroupdigital.com/#/material?materialId=1");
+        driver.get("http://oxygen.netgroupdigital.com/#/material?materialId=2");
+        driver.get("http://oxygen.netgroupdigital.com/#/material?materialId=3");
+        driver.get("http://oxygen.netgroupdigital.com/#/material?materialId=4");
 
-        // driver.findElement(By.cssSelector(".form-control.ng-pristine.ng-untouched.ng-valid")).sendKeys(GlobalConstants.SEARCH_IN_HEADER_FOR_Matemaatika);
-        // driver.findElement(By.cssSelector(".btn.btn-default")).click();
+        header.clickLogo(driver);
+
+        String search = "Automated";
+        header.searchFor(driver, search);
 
         driver.quit();
 
