@@ -1,37 +1,53 @@
 package ee.hm.dop.page;
 
 import org.openqa.selenium.By;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class Header extends Page {
 
-    // logo
-    public void clickLogo() {
-        getDriver().findElement(By.className("navbar-brand")).click();
+    private UserMenu userMenu;
+    private By koolikottLogo = By.className("navbar-brand");
+    private By simpleSearch = By.xpath("(//input[@type='text'])[2]");
+    private By executeSearch = By.id("searchButton");
+    private By selectLanguage = By.cssSelector(".form-control.ng-pristine.ng-untouched.ng-valid");
+    private By loginButton = By.id("loginButton");
+    private By detailedSearch = By.id("detailedSearchToggle");
+
+    public UserMenu getUserMenu() {
+        return userMenu;
+    }
+
+    public Header() {
+        userMenu = new UserMenu();
+    }
+
+    // clicking on logo will move to landingpage
+    public void clickKoolikottLogo() {
+        getDriver().findElement(koolikottLogo).click();
     }
 
     // type in search field and execute search
-    public void searchFor(String searchFor) {
-        getDriver().findElement(By.xpath("//input[@placeholder='Otsi']")).sendKeys(searchFor);
-
-        // (By.cssSelector(".form-control")).sendKeys(searchFor);
-        getDriver().findElement(By.cssSelector(".btn.btn-default")).click();
-    }
-
-    // search field, checking for click (this is just for testing purpose)
-    public void clickSearchField(String searchFor) {
-        WebDriverWait wait = new WebDriverWait(getDriver(), 10);
-        wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//input[@placeholder='Otsi']")));
-        getDriver().findElement(By.xpath("//input[@placeholder='Otsi']")).sendKeys(searchFor);
-
-        // (By.cssSelector(".form-control")).sendKeys(searchFor);
-        getDriver().findElement(By.cssSelector(".btn.btn-default")).click();
+    public SearchResultPage simpleSearch(String searchFor) {
+        // change to id when added!!!
+        getDriver().findElement(simpleSearch).sendKeys(searchFor);
+        getDriver().findElement(executeSearch).click();
+        return new SearchResultPage();
     }
 
     // language selection
     public void languageSelection(String setLanguage) {
-        getDriver().findElement(By.cssSelector(".form-control.ng-pristine.ng-untouched.ng-valid"));
+        getDriver().findElement(selectLanguage).click();
+    }
+
+    // user menu
+    public Login clickLogin() {
+        getDriver().findElement(loginButton).click();
+        return new Login();
+    }
+
+    // advanced search
+    public void detailedSearch() {
+        getDriver().findElement(detailedSearch).click();
+
     }
 
 }
