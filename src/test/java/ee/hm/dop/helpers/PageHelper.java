@@ -24,56 +24,28 @@ public class PageHelper extends SeleniumUser {
 
     }
 
-    public Page getCurrentPage() {
+    public static Page getCurrentPage() {
 
-        try {
-            Thread.sleep(2000);
-        } catch (InterruptedException e) {
-            // TODO Auto-generated catch block
-            e.printStackTrace();
-        }
         String url = getDriver().getCurrentUrl();
+
         String location = url.split("#")[1];
-        Page currentLocation = null;
+        Page currentPage = null;
 
         if ("/".equals(location)) {
-            currentLocation = new LandingPage();
+            currentPage = new LandingPage();
+        } else if (location.contains("/search/")) {
+            currentPage = new SearchResultPage();
+        } else if (location.contains("/testtaisnimi")) {
+            currentPage = new MyProfilePage();
+        } else if (location.contains("/about")) {
+            currentPage = new AboutPage();
+        } else if (location.contains("/help")) {
+            currentPage = new HelpPage();
+        } else {
+            throw new RuntimeException("Page not supported, add in PageHelper.getCurrentPage");
         }
 
-        else if (location.contains("/search/")) {
-            currentLocation = new SearchResultPage();
-        }
-
-        /*
-         * else if (location.contains("/material")) { currentLocation = new
-         * MaterialPage(); }
-         * 
-         * else if (location.contains("/portfolio")) { currentLocation = new
-         * PortfolioPage(); }
-         * 
-         * else if (location.contains("/???????????")) { currentLocation = new
-         * UserProfilePage(); }
-         * 
-         * 
-         * 
-         */
-        else if (location.contains("/testtaisnimi")) {
-            currentLocation = new MyProfilePage();
-        }
-
-        else if (location.contains("/about")) {
-            currentLocation = new AboutPage();
-        }
-
-        else if (location.contains("/help")) {
-            currentLocation = new HelpPage();
-        }
-
-        else {
-            System.out.println("Undefined page detected - updated PageHelper.getCurrentPage method");
-        }
-
-        return currentLocation;
+        return currentPage;
     }
 
 }

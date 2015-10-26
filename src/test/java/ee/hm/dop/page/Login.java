@@ -60,15 +60,27 @@ public class Login extends Page {
             getDriver().findElement(rememberTaatLoginCheckbox).click();
         }
         getDriver().findElement(moveBackToKoolikottFromTaat).click();
-        Page currentPage = new PageHelper().getCurrentPage();
-        return currentPage;
 
+        // waits for redirect to pass, otherwise getCurrentPage will return
+        // "/loginRedirect"
+        try {
+            Thread.sleep(2000);
+        } catch (InterruptedException e) {
+        }
+
+        return PageHelper.getCurrentPage();
     }
 
-    public void loginWithMobileID() {
+    public Page loginWithMobileID() {
         getDriver().findElement(mobileIdCodeField).sendKeys(mobileIDCode);
         getDriver().findElement(mobilePhoneNumberField).sendKeys(mobilePhoneNumber);
         getDriver().findElement(mobileLoginConfirmation).click();
+        try {
+            Thread.sleep(20000);
+        } catch (InterruptedException e) {
+        }
+
+        return PageHelper.getCurrentPage();
 
     }
 

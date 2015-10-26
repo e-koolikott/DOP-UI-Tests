@@ -19,7 +19,7 @@ public class SimpleSearchTest {
         List<MaterialBox> searchResults = goToLandingPage() //
                 .getHeader() //
                 .simpleSearch("automated") //
-                .getResults();
+                .getResultsAsMaterialBox();
 
         boolean foundMaterial10 = false;
         for (MaterialBox materialBox : searchResults) {

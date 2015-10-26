@@ -10,7 +10,7 @@ public class SearchResultPage extends Page {
 
     private By actualResults = By.xpath("//div[contains(@id,'results')]/div");
 
-    public List<MaterialBox> getResults() {
+    public List<MaterialBox> getResultsAsMaterialBox() {
         List<WebElement> allMaterials = getDriver().findElements(actualResults);
         List<MaterialBox> searchResults = new ArrayList<>();
 
@@ -19,6 +19,16 @@ public class SearchResultPage extends Page {
         }
 
         return searchResults;
+    }
+
+    public MaterialBox getMaterialBox(int materialId) {
+        WebElement materialBoxElement = getDriver().findElement(By.id("materialBox" + materialId));
+        return new MaterialBox(materialBoxElement);
+    }
+
+    public MaterialBox getPortfolioBox(int portfolioId) {
+        WebElement portfolioBoxElement = getDriver().findElement(By.id("portfolioBox" + portfolioId));
+        return new MaterialBox(portfolioBoxElement);
     }
 
 }

@@ -7,6 +7,7 @@ import org.junit.Test;
 
 public class TaatLoginTest {
 
+    // Tests TAAT login
     @Test
     public void loginTaat() throws InterruptedException {
         // tests TAAT login method. Do not use this for tests that require login
@@ -15,7 +16,8 @@ public class TaatLoginTest {
         // goes to landing page
 
         String userName = goToLandingPage() //
-                .getHeader().clickLogin() //
+                .getHeader() //
+                .clickLogin() //
                 .loginWithTaat("student", "test") //
                 .getHeader() //
                 .getUserMenu() //

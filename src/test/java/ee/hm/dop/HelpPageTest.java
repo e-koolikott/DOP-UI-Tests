@@ -7,7 +7,7 @@ import org.junit.Test;
 
 public class HelpPageTest {
 
-    // testing accessibility of about page from the landing page
+    // testing accessibility of HELP page from the landing page
     @Test
     public void goToHelpPageFromLandingPage() {
 
