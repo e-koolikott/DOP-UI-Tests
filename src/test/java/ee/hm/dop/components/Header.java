@@ -1,8 +1,11 @@
-package ee.hm.dop.page;
+package ee.hm.dop.components;
 
 import org.openqa.selenium.By;
 
-public class Header extends Page {
+import ee.hm.dop.page.LandingPage;
+import ee.hm.dop.page.SearchResultPage;
+
+public class Header extends PageComponent {
 
     private UserMenu userMenu;
     private By koolikottLogo = By.className("navbar-brand");
@@ -21,8 +24,9 @@ public class Header extends Page {
     }
 
     // clicking on logo will move to landingpage
-    public void clickKoolikottLogo() {
+    public LandingPage clickKoolikottLogo() {
         getDriver().findElement(koolikottLogo).click();
+        return new LandingPage();
     }
 
     // type in search field and execute search

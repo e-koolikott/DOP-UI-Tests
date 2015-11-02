@@ -11,7 +11,6 @@ public abstract class SeleniumUser {
 
     protected static WebDriver getDriver() {
         initDriver();
-
         return driver;
     }
 

@@ -5,7 +5,7 @@ import static ee.hm.dop.page.LandingPage.goToLandingPage;
 import org.junit.Assert;
 import org.junit.Test;
 
-public class LogoutTest {
+public class LogoutTest extends AbstractTest {
     // Tests TAAT login
     @Test
     public void logout() throws InterruptedException {

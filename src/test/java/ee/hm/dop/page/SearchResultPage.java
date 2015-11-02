@@ -6,6 +6,8 @@ import java.util.List;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 
+import ee.hm.dop.components.MaterialBox;
+
 public class SearchResultPage extends Page {
 
     private By actualResults = By.xpath("//div[contains(@id,'results')]/div");

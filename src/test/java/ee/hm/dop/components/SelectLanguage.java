@@ -1,8 +1,8 @@
-package ee.hm.dop.page;
+package ee.hm.dop.components;
 
 import org.openqa.selenium.By;
 
-public class SelectLanguage extends Page {
+public class SelectLanguage extends PageComponent {
 
     private By estonian = By.xpath("//a[conatins(@data-ng-click, 'setLanguage('est')')]");
     private By russian = By.xpath("//a[conatins(@data-ng-click, 'setLanguage('rus')')]");

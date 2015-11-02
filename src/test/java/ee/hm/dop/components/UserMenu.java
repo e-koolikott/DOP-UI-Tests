@@ -1,8 +1,12 @@
-package ee.hm.dop.page;
+package ee.hm.dop.components;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.InvalidElementStateException;
 
-public class UserMenu extends Page {
+import ee.hm.dop.helpers.PageHelper;
+import ee.hm.dop.page.Page;
+
+public class UserMenu extends PageComponent {
 
     static By userMenu = By.id("userMenu");
     static By myProfile = By.xpath("//span[contains(@data-translate, 'MY_PROFILE')]");
@@ -10,10 +14,15 @@ public class UserMenu extends Page {
     static By loggedInUsersName = By.xpath("//span[contains(@class, 'username')]");
 
     public void openUserMenu() {
+        if (isOpened()) {
+            throw new InvalidElementStateException("User menu is already opened");
+        }
+
         getDriver().findElement(userMenu).click();
+
     }
 
-    public boolean userMenuisVisible() {
+    public boolean isVisible() {
         if (getDriver().findElement(userMenu).isDisplayed()) {
             return true;
         }
@@ -26,9 +35,17 @@ public class UserMenu extends Page {
         getDriver().findElement(myProfile).click();
     }
 
-    public void logOut() {
-        openUserMenu();
+    public boolean isOpened() {
+        if (getDriver().findElement(logOut).isDisplayed()) {
+            return true;
+        }
+        return false;
+
+    }
+
+    public Page clickLogout() {
         getDriver().findElement(logOut).click();
+        return PageHelper.getCurrentPage();
     }
 
     public String getUserName() {

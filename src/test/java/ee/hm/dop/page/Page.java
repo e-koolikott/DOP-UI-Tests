@@ -1,6 +1,8 @@
 package ee.hm.dop.page;
 
 import ee.hm.dop.SeleniumUser;
+import ee.hm.dop.components.Footer;
+import ee.hm.dop.components.Header;
 
 public abstract class Page extends SeleniumUser {
 

@@ -7,7 +7,7 @@ import org.junit.Test;
 
 import ee.hm.dop.page.LandingPage;
 
-public class OtherUsersPageTest {
+public class OtherUsersPageTest extends AbstractTest {
     // Tests accessibility of other users page with anonymous login
     @Test
     public void otherUsersPage() throws InterruptedException {

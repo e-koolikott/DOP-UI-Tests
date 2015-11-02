@@ -1,11 +1,12 @@
-package ee.hm.dop.page;
+package ee.hm.dop.components;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.support.ui.Select;
 
 import ee.hm.dop.helpers.PageHelper;
+import ee.hm.dop.page.Page;
 
-public class Login extends Page {
+public class Login extends PageComponent {
 
     // Login activities:
     // - expects that Login view has been opened already via header class
