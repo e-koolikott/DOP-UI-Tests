@@ -2,6 +2,7 @@ package ee.hm.dop.components;
 
 import org.openqa.selenium.By;
 
+import ee.hm.dop.helpers.PageHelper;
 import ee.hm.dop.page.HtmPage;
 
 public class Footer extends PageComponent {
@@ -11,6 +12,7 @@ public class Footer extends PageComponent {
     private By htmLogo = By.id("exifviewer-img-2");
 
     public HtmPage clickHTMLogo() {
+        PageHelper.waitFor(htmLogo);
         getDriver().findElement(htmLogo).click();
         return new HtmPage();
     }

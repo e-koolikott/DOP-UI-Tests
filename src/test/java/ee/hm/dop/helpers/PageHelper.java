@@ -1,5 +1,9 @@
 package ee.hm.dop.helpers;
 
+import org.openqa.selenium.By;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+
 import ee.hm.dop.SeleniumUser;
 import ee.hm.dop.components.UserMenu;
 import ee.hm.dop.page.AboutPage;
@@ -46,6 +50,13 @@ public class PageHelper extends SeleniumUser {
         }
 
         return currentPage;
+    }
+
+    public static void waitFor(By locator) {
+
+        WebDriverWait wait = new WebDriverWait(getDriver(), 30);
+        wait.until(ExpectedConditions.elementToBeClickable(locator));
+
     }
 
 }

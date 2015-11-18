@@ -19,6 +19,7 @@ public class Login extends PageComponent {
     private By loginToTaat = By.xpath("//input[contains(@type, 'submit')]");
     private By rememberTaatLoginCheckbox = By.xpath("//input[contains(@type, 'checkbox')]");
     private By moveBackToKoolikottFromTaat = By.id("yesbutton");
+    private By userMenu = By.id("userMenu");
 
     // mobile login variables
     private By mobileIdCodeField = By.id("idCode");
@@ -64,11 +65,7 @@ public class Login extends PageComponent {
 
         // waits for redirect to pass, otherwise getCurrentPage will return
         // "/loginRedirect"
-        try {
-            Thread.sleep(2000);
-        } catch (InterruptedException e) {
-        }
-
+        PageHelper.waitFor(userMenu);
         return PageHelper.getCurrentPage();
     }
 
@@ -76,10 +73,7 @@ public class Login extends PageComponent {
         getDriver().findElement(mobileIdCodeField).sendKeys(mobileIDCode);
         getDriver().findElement(mobilePhoneNumberField).sendKeys(mobilePhoneNumber);
         getDriver().findElement(mobileLoginConfirmation).click();
-        try {
-            Thread.sleep(20000);
-        } catch (InterruptedException e) {
-        }
+        PageHelper.waitFor(userMenu);
 
         return PageHelper.getCurrentPage();
 
