@@ -20,6 +20,7 @@ public abstract class Page extends SeleniumUser {
     // kogumik']");
     private By fabButton = By.xpath("//md-fab-trigger");
     private By addMaterialButton = By.xpath("//button[@data-ng-click='showAddMaterialDialog($event)']");
+    private By ekoolLoginButton = By.id("login-ekool-button");
 
     public Header getHeader() {
         return header;
@@ -58,6 +59,7 @@ public abstract class Page extends SeleniumUser {
     }
 
     public AddMaterialPopup clickAddMaterial() {
+        PageHelper.waitForNotVisible(ekoolLoginButton);
 
         moveCursorToAddPortfolio();
         moveCursorToAddMaterial();

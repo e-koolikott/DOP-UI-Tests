@@ -74,4 +74,10 @@ public class PageHelper extends SeleniumUser {
 
     }
 
+    public static void waitForNotVisible(By locator) {
+        WebDriverWait wait = new WebDriverWait(getDriver(), 30);
+        wait.until(ExpectedConditions.invisibilityOfElementLocated(locator));
+
+    }
+
 }
