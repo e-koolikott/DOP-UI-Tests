@@ -1,7 +1,5 @@
 package ee.hm.dop;
 
-import static ee.hm.dop.page.OtherUsersPage.goToOtherUsersPage;
-
 import org.junit.Assert;
 import org.junit.Test;
 
@@ -16,12 +14,12 @@ public class OtherUsersPageTest extends AbstractTest {
 
         // goes to landing page
 
-        LandingPage.goToLandingPage();
-        String schoolName = goToOtherUsersPage("seitsmes.testnumber")//
-                .getSchoolName();
+        String userName = LandingPage.goToLandingPage() //
+                .goToProfilePage("ester.tester")//
+                .getOtherUsersName();
 
         // verify that user was loged in with taat
-        Assert.assertEquals("Hugo Treffneri Gümnaasium", schoolName);
+        Assert.assertEquals("Ester Tester", userName);
 
     }
 

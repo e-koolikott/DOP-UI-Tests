@@ -24,12 +24,12 @@ public class SearchResultPage extends Page {
     }
 
     public MaterialBox getMaterialBox(int materialId) {
-        WebElement materialBoxElement = getDriver().findElement(By.id("materialBox" + materialId));
+        WebElement materialBoxElement = getDriver().findElement(By.id("material-card-" + materialId));
         return new MaterialBox(materialBoxElement);
     }
 
     public MaterialBox getPortfolioBox(int portfolioId) {
-        WebElement portfolioBoxElement = getDriver().findElement(By.id("portfolioBox" + portfolioId));
+        WebElement portfolioBoxElement = getDriver().findElement(By.id("portfolio-card-" + portfolioId));
         return new MaterialBox(portfolioBoxElement);
     }
 

@@ -14,7 +14,7 @@ public abstract class AbstractTest {
 
             if (userMenu.isVisible()) {
                 if (!userMenu.isOpened()) {
-                    userMenu.openUserMenu();
+                    userMenu.clickOpenUserMenu();
                 }
 
                 userMenu.clickLogout();

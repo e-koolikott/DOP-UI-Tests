@@ -17,13 +17,15 @@ public class LogoutTest extends AbstractTest {
         String userName = goToLandingPage() //
                 .getHeader() //
                 .clickLogin() //
-                .loginWithMobileID() //
+                .loginWithBackDoor("user") //
                 .getHeader() //
                 .getUserMenu() //
-                .getUserName();
+                .clickOpenUserMenu() //
+                .clickLogout() //
+                .getTitle();
 
         // using this assert to verify that we are logged in
-        Assert.assertEquals("Seitsmes Testnumber", userName);
+        Assert.assertEquals("Ester Tester", userName);
 
     }
 

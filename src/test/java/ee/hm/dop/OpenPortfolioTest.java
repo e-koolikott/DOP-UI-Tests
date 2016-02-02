@@ -13,9 +13,8 @@ public class OpenPortfolioTest extends AbstractTest {
 
         String portfolioSummary = goToLandingPage() //
                 .getHeader() //
-                .simpleSearch("automated") //
-                .getPortfolioBox(7) // this one gets the material box with ID=10
-                                    // (Automated test material)
+                .clickSimpleSearch().searchWithSimpleSearch("automated") //
+                .getPortfolioBox(7) // portfolio with id 7
                 .openPortfolio() //
                 .getPortfolioSummary();
 

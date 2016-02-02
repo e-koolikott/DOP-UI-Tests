@@ -9,7 +9,7 @@ public class HtmPage extends Page {
     private By htmText = By.xpath("//a[contains(@class, 'otselink')]");
 
     public String getTextOnHtmPage() {
-        PageHelper.waitFor(htmText);
+        PageHelper.waitForVisibility(htmText);
         return getDriver().findElement(htmText).getText();
     }
 

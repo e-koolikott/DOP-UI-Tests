@@ -19,22 +19,7 @@ public class LandingPageTest {
                 .clickKoolikottLogo() //
                 .getTitle();
 
-        Assert.assertEquals("Uusimad", landingPageTitle);
-
-    }
-
-    // testing accessibility of about page from the landing page
-    @Test
-    public void goToHtmWithFooterLogo() {
-
-        // open first page as landing page and click on about link
-        // verify opening of about page
-        String landingPageTitle = goToLandingPage() //
-                .getFooter() //
-                .clickHTMLogo() //
-                .getTextOnHtmPage();
-
-        Assert.assertEquals("HaridusSilm", landingPageTitle);
+        Assert.assertEquals("Uuemad", landingPageTitle);
 
     }
 

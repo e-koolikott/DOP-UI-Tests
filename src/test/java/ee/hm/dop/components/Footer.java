@@ -12,7 +12,7 @@ public class Footer extends PageComponent {
     private By htmLogo = By.id("exifviewer-img-2");
 
     public HtmPage clickHTMLogo() {
-        PageHelper.waitFor(htmLogo);
+        PageHelper.waitForVisibility(htmLogo);
         getDriver().findElement(htmLogo).click();
         return new HtmPage();
     }

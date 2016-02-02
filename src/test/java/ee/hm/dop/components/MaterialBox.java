@@ -9,7 +9,7 @@ import ee.hm.dop.page.PortfolioPage;
 public class MaterialBox {
 
     private WebElement materialElement;
-    private By materialHref = By.xpath(".//a");
+    private By materialHref = By.xpath("//md-card[contains(@id,'material-card')]");
 
     // opens a specific material(can be used anywhere where there are material
     // boxes)

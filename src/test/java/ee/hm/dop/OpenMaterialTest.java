@@ -15,9 +15,9 @@ public class OpenMaterialTest {
 
         String htmlLink = goToLandingPage() //
                 .getHeader() //
-                .simpleSearch("automated") //
+                .clickSimpleSearch() //
+                .searchWithSimpleSearch("automated") //
                 .getMaterialBox(10) // this one gets the material box with ID=10
-                                    // (Automated test material)
                 .openMaterial() //
                 .getMaterialLink();
 

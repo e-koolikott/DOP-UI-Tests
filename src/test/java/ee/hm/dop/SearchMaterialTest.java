@@ -20,7 +20,7 @@ public class SearchMaterialTest extends AbstractTest {
 
         List<MaterialBox> searchResults = goToLandingPage() //
                 .getHeader() //
-                .simpleSearch("title:Automated") //
+                .searchWithSimpleSearch("title:Automated") //
                 .getResultsAsMaterialBox();
 
         boolean foundMaterial10 = false;
@@ -40,7 +40,7 @@ public class SearchMaterialTest extends AbstractTest {
 
         List<MaterialBox> searchResults = goToLandingPage() //
                 .getHeader() //
-                .simpleSearch("material Description") //
+                .searchWithSimpleSearch("material Description") //
                 .getResultsAsMaterialBox();
 
         boolean foundMaterial10 = false;
@@ -59,7 +59,7 @@ public class SearchMaterialTest extends AbstractTest {
 
         List<MaterialBox> searchResults = goToLandingPage() //
                 .getHeader() //
-                .simpleSearch("author:Automated") //
+                .searchWithSimpleSearch("author:Automated") //
                 .getResultsAsMaterialBox();
 
         boolean foundMaterial10 = false;
@@ -78,7 +78,7 @@ public class SearchMaterialTest extends AbstractTest {
 
         List<MaterialBox> searchResults = goToLandingPage() //
                 .getHeader() //
-                .simpleSearch("abiogenesis") //
+                .searchWithSimpleSearch("abiogenesis") //
                 .getResultsAsMaterialBox();
 
         boolean foundMaterial10 = false;
@@ -97,7 +97,7 @@ public class SearchMaterialTest extends AbstractTest {
 
         List<MaterialBox> searchResults = goToLandingPage() //
                 .getHeader() //
-                .simpleSearch("Audio") //
+                .searchWithSimpleSearch("Audio") //
                 .getResultsAsMaterialBox();
 
         boolean foundMaterial36 = false;
@@ -118,7 +118,7 @@ public class SearchMaterialTest extends AbstractTest {
 
         List<MaterialBox> searchResults = goToLandingPage() //
                 .getHeader() //
-                .simpleSearch("title:Automated") //
+                .searchWithSimpleSearch("title:Automated") //
                 .getResultsAsMaterialBox();
 
         boolean foundMaterial36 = false;
